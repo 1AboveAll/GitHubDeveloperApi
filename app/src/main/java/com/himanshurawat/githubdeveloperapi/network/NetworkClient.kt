@@ -1,6 +1,7 @@
 package com.himanshurawat.githubdeveloperapi.network
 
 import android.content.Context
+import com.himanshurawat.githubdeveloperapi.utils.Constants
 import com.himanshurawat.githubdeveloperapi.utils.cacheSizeConverter
 import com.himanshurawat.githubdeveloperapi.utils.hasNetwork
 import okhttp3.Cache
@@ -36,7 +37,7 @@ class NetworkClient {
 
                 INSTANCE = Retrofit.
                         Builder().
-                        baseUrl("url").
+                        baseUrl(Constants.BASE_URL).
                         addConverterFactory(GsonConverterFactory.create()).
                         client(okHttpClient).build()
             }

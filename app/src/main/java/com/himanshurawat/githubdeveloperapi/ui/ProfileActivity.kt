@@ -1,4 +1,4 @@
-package com.himanshurawat.githubdeveloperapi
+package com.himanshurawat.githubdeveloperapi.ui
 
 import androidx.appcompat.app.AppCompatActivity
 
