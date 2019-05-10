@@ -11,4 +11,11 @@
     <style name="AppTheme.MainActivity">
 
     </style>
+
+    <style name="AppTheme.ProfileActivity">
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
 </resources>

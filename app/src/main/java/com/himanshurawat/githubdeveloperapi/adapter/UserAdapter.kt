@@ -35,11 +35,17 @@ class UserAdapter(private val context: Context, private val dataList: MutableLis
         val pos = holder.adapterPosition
         val item = dataList[pos]
         holder.nameTextView.text = item.login
+        holder.placeTextView.visibility = View.GONE
+
         //Setting Up Circular Profile Image :P
         Glide.with(context).
             load(item.profilePictureUrl).
             apply(RequestOptions.circleCropTransform()).
             into(holder.profileImageView)
+
+        holder.itemView.setOnClickListener {
+            listener.onUserItemClick(item)
+        }
 
 
     }
@@ -53,6 +59,6 @@ class UserAdapter(private val context: Context, private val dataList: MutableLis
     }
 
     interface OnUserItemClickListener{
-        fun onUserItemClick()
+        fun onUserItemClick(users: Users)
     }
 }

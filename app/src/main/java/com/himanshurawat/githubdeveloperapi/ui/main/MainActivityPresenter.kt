@@ -5,8 +5,8 @@ import com.himanshurawat.githubdeveloperapi.pojo.Users
 
 class MainActivityPresenter(val view: MainActivityContract.View): MainActivityContract.Presenter{
 
-    override fun requestData(sequenceNumber: Long) {
-        model.fetch(sequenceNumber)
+    override fun requestData(after: Long) {
+        model.fetch(after)
     }
 
     private lateinit var model: MainActivityContract.Model

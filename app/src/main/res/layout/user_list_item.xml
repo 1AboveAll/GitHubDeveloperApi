@@ -5,10 +5,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="20dp"
+    app:cardCornerRadius="15dp"
     android:background="@color/colorWhite"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
+    android:layout_marginTop="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginRight="8dp"
     android:layout_marginLeft="8dp"
@@ -50,14 +49,12 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:text="Himanshu Rawat"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/user_list_item_place_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Delhi, India"
                 android:visibility="visible"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
 

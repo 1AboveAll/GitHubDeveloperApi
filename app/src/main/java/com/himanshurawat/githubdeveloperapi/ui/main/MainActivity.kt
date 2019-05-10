@@ -1,6 +1,6 @@
 package com.himanshurawat.githubdeveloperapi.ui.main
 
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.AbsListView
 import androidx.appcompat.app.AppCompatActivity
@@ -12,17 +12,23 @@ import com.himanshurawat.githubdeveloperapi.R
 import com.himanshurawat.githubdeveloperapi.adapter.UserAdapter
 import com.himanshurawat.githubdeveloperapi.databinding.ActivityMainBinding
 import com.himanshurawat.githubdeveloperapi.pojo.Users
+import com.himanshurawat.githubdeveloperapi.ui.profile.ProfileActivity
+import com.himanshurawat.githubdeveloperapi.utils.Constants
 import com.himanshurawat.githubdeveloperapi.utils.InternetConnectivity
 
 class MainActivity: AppCompatActivity(), UserAdapter.OnUserItemClickListener,MainActivityContract.View {
+
+    override fun onUserItemClick(users: Users) {
+        val profileIntent = Intent(this@MainActivity,
+            ProfileActivity::class.java).apply {
+            putExtra(Constants.MAIN_TO_PROFILE_INTENT_KEY,users)
+        }
+        startActivity(profileIntent)
+    }
+
     override fun addUser(user: Users) {
         userList.add(user)
         userAdapter.notifyItemInserted(userList.size - 1)
-    }
-
-
-    override fun onUserItemClick() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     private lateinit var binding: ActivityMainBinding

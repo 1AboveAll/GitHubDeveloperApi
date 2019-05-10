@@ -2,21 +2,17 @@ package com.himanshurawat.githubdeveloperapi.ui.main
 
 import android.content.Context
 import com.himanshurawat.githubdeveloperapi.network.NetworkClient
-import com.himanshurawat.githubdeveloperapi.network.UserService
+import com.himanshurawat.githubdeveloperapi.network.NetworkService
 import com.himanshurawat.githubdeveloperapi.pojo.Users
 import io.reactivex.Observer
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import retrofit2.Retrofit
-import rx.Subscriber
-import rx.plugins.RxJavaSchedulersHook
-import rx.schedulers.Schedulers
 
 class MainActivityModel(context: Context,val presenter: MainActivityContract.Presenter): MainActivityContract.Model {
 
     private var retrofit: Retrofit = NetworkClient.getRetrofit(context)
-    private var userService = retrofit.create(UserService::class.java)
+    private var userService = retrofit.create(NetworkService::class.java)
 
     override fun fetch(sequenceNumber: Long) {
 
