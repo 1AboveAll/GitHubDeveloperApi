@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.himanshurawat.githubdeveloperapi.R
 import com.himanshurawat.githubdeveloperapi.databinding.ActivitySplashBinding
+import com.himanshurawat.githubdeveloperapi.ui.main.MainActivity
 
 class SplashActivity: AppCompatActivity() {
 

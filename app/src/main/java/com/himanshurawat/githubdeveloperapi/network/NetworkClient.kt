@@ -3,7 +3,8 @@ package com.himanshurawat.githubdeveloperapi.network
 import android.content.Context
 import com.himanshurawat.githubdeveloperapi.utils.Constants
 import com.himanshurawat.githubdeveloperapi.utils.cacheSizeConverter
-import com.himanshurawat.githubdeveloperapi.utils.hasNetwork
+import com.himanshurawat.githubdeveloperapi.utils.isNetworkAvailable
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -27,7 +28,7 @@ class NetworkClient {
                         .cache(cache)
                         .addInterceptor { chain ->
                             var request = chain.request()
-                            request = if (hasNetwork(context))
+                            request = if (isNetworkAvailable(context))
                                 request.newBuilder().header("Cache-Control", "public, max-age=" + 5).build()
                             else
                                 request.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7).build()
@@ -39,6 +40,7 @@ class NetworkClient {
                         Builder().
                         baseUrl(Constants.BASE_URL).
                         addConverterFactory(GsonConverterFactory.create()).
+                        addCallAdapterFactory(RxJava2CallAdapterFactory.create()).
                         client(okHttpClient).build()
             }
 

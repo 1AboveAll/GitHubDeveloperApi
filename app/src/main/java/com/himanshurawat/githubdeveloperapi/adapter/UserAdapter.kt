@@ -8,11 +8,13 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.himanshurawat.githubdeveloperapi.R
-import com.himanshurawat.githubdeveloperapi.pojo.User
+import com.himanshurawat.githubdeveloperapi.pojo.Users
 
 
-class UserAdapter(private val context: Context,private val dataList: List<User>,private val listener: OnUserItemClickListener): RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
+class UserAdapter(private val context: Context, private val dataList: MutableList<Users>, private val listener: OnUserItemClickListener): RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -32,8 +34,12 @@ class UserAdapter(private val context: Context,private val dataList: List<User>,
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val pos = holder.adapterPosition
         val item = dataList[pos]
-
-
+        holder.nameTextView.text = item.login
+        //Setting Up Circular Profile Image :P
+        Glide.with(context).
+            load(item.profilePictureUrl).
+            apply(RequestOptions.circleCropTransform()).
+            into(holder.profileImageView)
 
 
     }

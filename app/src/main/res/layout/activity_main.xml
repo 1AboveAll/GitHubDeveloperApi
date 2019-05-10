@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout >
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="isConnected"
+            type="boolean" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBack">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_main_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/activity_main_no_internet_connectivity"/>
 
-    </LinearLayout>
+
+
+        <include
+            android:id="@+id/activity_main_no_internet_connectivity"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            layout="@layout/layout_no_internet"
+            android:visibility="@{isConnected ? View.GONE : View.VISIBLE}"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
 </layout>
