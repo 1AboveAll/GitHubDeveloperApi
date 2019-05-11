@@ -55,7 +55,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:text="Himanshu Rawat"
                     android:maxLines="1"
                     android:ellipsize="end"
                     android:textColor="@android:color/black"
@@ -64,7 +63,6 @@
                     android:id="@+id/activity_profile_username_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="1AboveAll"
                     android:textColor="@color/colorTextGrey"
                     />
 
@@ -97,7 +95,6 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
-                        android:text="Color"
                         />
 
                 </LinearLayout>
@@ -112,7 +109,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="400"
                         android:textStyle="bold"/>
 
                     <TextView
@@ -132,7 +128,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="401"
                         android:textStyle="bold"/>
 
                     <TextView
